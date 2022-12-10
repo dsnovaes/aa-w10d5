@@ -3,7 +3,11 @@ import ReactDOM from 'react-dom';
 import { createRoot } from 'react-dom'
 import './index.css';
 import App from './App';
-import { BrowserRouter } from 'react-router-dom'
+import { Route, BrowserRouter } from 'react-router-dom'
+import GalleryView from './components/GalleryView';
+import GalleryNavigation from './components/GalleryNavigation';
+
+
 
 const Root = () => {
   return (
