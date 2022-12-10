@@ -1,13 +1,21 @@
 import { NavLink } from "react-router-dom";
 import './GalleryNavigation.css'
+import harvardArt from '../../data/harvardArt.js'
 
+const galleryNames = Object.values(harvardArt.records)
+console.log(galleryNames[0].gallerynumber)
 
 const GalleryNavigation = ({galleries}) => {
-    console.log("test",galleries)
+    // console.log("test",galleries)
     return (
             <nav>
+                <NavLink to={'/'}>Home page</NavLink>
                 <h1>Galleries</h1>
-                <NavLink to="/" />
+                <ul>
+                    {galleryNames.map((gallery, i) => (
+                        <li key={i}><NavLink to={`/galleries/${gallery.gallerynumber}`}> {gallery.name}</NavLink></li>
+                    ))}
+                </ul>
             </nav>
     );
 }
