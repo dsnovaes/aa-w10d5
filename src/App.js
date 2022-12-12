@@ -1,20 +1,25 @@
-import harvardArt from "./data/harvardArt";
+import { Switch, Route, Redirect } from 'react-router-dom'
 import GalleryNavigation from "./components/GalleryNavigation";
 import GalleryView from "./components/GalleryView";
-import { Route } from 'react-router-dom'
 
-function App() {
+const App = props => {
   return (
-    <>
-      <GalleryNavigation galleries={harvardArt.records} />
-    </>
+    <div className='page-wrapper'>
+      <Switch>
+        <Route path="/galleries/:galleryId" component={GalleryView} />
+        <Route path="/galleries" component={GalleryNavigation} />
+        <Route exact path="/">
+          <GalleryNavigation />
+          <h2>Harvard Art Museum</h2>
+          <p>Look, but Don't Touch. Please select a Gallery in the navigation bar &uarr;.</p>
+        </Route>
+        <Route path="/">
+          <h2>Page Not Found</h2>
+        </Route>
+      </Switch>
+    </div>
+    
   );
 }
-
-<Switch>
-  <Route path="/galleries/:galleryId" component={GalleryView} />
-  <Route path="/galleries" component={GalleryNavigation} />
-  <Redirect to="/galleries" />
-</Switch>
 
 export default App;

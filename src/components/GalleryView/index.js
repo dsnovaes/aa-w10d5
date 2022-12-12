@@ -1,11 +1,16 @@
-import { useParams } from 'react-router-dom'
+import { NavLink, useParams } from 'react-router-dom'
+import harvardArt from '../../data/harvardArt.js'
+const galleryNames = Object.values(harvardArt.records)
 
-
-const GalleryView = (props) => {
+const GalleryView = () => {
     
     const { galleryId } = useParams();
+    const gallery = galleryNames.find(gallery => gallery.gallerynumber === galleryId);
     return (
-        <h1>The Gallery View</h1>
+        <>
+            <NavLink to={'/'}>&larr; Home page</NavLink>
+            <h1>{gallery.name}</h1>
+        </>
     );
 }
 

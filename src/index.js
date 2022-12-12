@@ -1,25 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createRoot } from 'react-dom'
+import { BrowserRouter } from 'react-router-dom'
 import './index.css';
 import App from './App';
-import { Route, BrowserRouter } from 'react-router-dom'
-import GalleryView from './components/GalleryView';
-import GalleryNavigation from './components/GalleryNavigation';
 
-
-
-const Root = () => {
-  return (
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
     <BrowserRouter>
       <App />
     </BrowserRouter>
-  )
-}
-
-ReactDOM.render(
-  <React.StrictMode>
-    <Root />
-  </React.StrictMode>,
-  document.getElementById('root')
+  </React.StrictMode>
 );
